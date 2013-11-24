@@ -1,0 +1,15 @@
+---------- Date: 2013-11-19 18:45:09 ~ IP : 5.248.240.126 ----------
+REQUEST URI : /index.php?route=product/category&amp;path=60_127
+MOD DETAILS:
+   modFile   : /var/www/tradeunit/vqmod/xml/vqmod_filter_products_by_category.xml
+   id        : Фильтр товаров для OpenCart v.1.5.2.1
+   version   : 1.1.1
+   vqmver    : 2.1.5
+   author    : by Palcet - www.maxzon.ru
+
+File Name    : catalog/controller/product/category.php(5)
+VQModObject::applyMod - SEARCH NOT FOUND (ABORTING MOD): 'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
+
+----------------------------------------------------------------------
+
+

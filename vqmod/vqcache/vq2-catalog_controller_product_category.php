@@ -21,15 +21,6 @@ class ControllerProductCategory extends Controller {
 			$order = 'ASC';
 		}
 		
-
-// Start filter
-	   if (isset($this->request->get['filter'])) {
-	        $filter = $this->request->get['filter'];
-	   } else {
-	        $filter = '';
-	   }
-// End filter
-            
 		if (isset($this->request->get['page'])) {
 			$page = $this->request->get['page'];
 		} else { 
@@ -65,9 +56,16 @@ class ControllerProductCategory extends Controller {
 				$category_info = $this->model_catalog_category->getCategory($path_id);
 				
 				if ($category_info) {
+
+			if ($category_info['linkto']) {
+				$link = $category_info['linkto'];
+			} else {
+				$link = $this->url->link('product/category', 'path=' . $path);
+			}
+		    
 	       			$this->data['breadcrumbs'][] = array(
    	    				'text'      => $category_info['name'],
-						'href'      => $this->url->link('product/category', 'path=' . $path),
+						'href'      => $link,
         				'separator' => $this->language->get('text_separator')
         			);
 				}
@@ -126,13 +124,6 @@ class ControllerProductCategory extends Controller {
 				$url .= '&order=' . $this->request->get['order'];
 			}	
 			
-
-	        // Start filter
-	        if (isset($this->request->get['filter'])) {
-	          $url .= '&filter=' . $this->request->get['filter'];
-	        }
-	        // End filter
-            
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
@@ -147,20 +138,16 @@ class ControllerProductCategory extends Controller {
 					'filter_sub_category' => true
 				);
 				
+				$product_total = $this->model_catalog_product->getTotalProducts($data);				
 				
-	        // Start filter
-	        $product_total = $this->model_catalog_product->getTotalProducts($data, $filter);
-	        // End filter
-            				
-				
+if ($result['linkto']) {
+				$link = $result['linkto'];
+			} else {
+				$link = $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url);
+			}
 				$this->data['categories'][] = array(
 					'name'  => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $product_total . ')' : ''),
-
-// Start filter
-					'count' => $product_total,
-// End filter
-            
-					'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
+					'href'  => $link
 				);
 			}
 			
@@ -174,17 +161,9 @@ class ControllerProductCategory extends Controller {
 				'limit'              => $limit
 			);
 					
+			$product_total = $this->model_catalog_product->getTotalProducts($data); 
 			
-	        // Start filter
-	        $product_total = $this->model_catalog_product->getTotalProducts($data, $filter);
-	        // End filter
-             
-			
-			
-	        // Start filter
-	        $results = $this->model_catalog_product->getProducts($data, $filter);
-	        // End filter
-            
+			$results = $this->model_catalog_product->getProducts($data);
 			
 			foreach ($results as $result) {
 				if ($result['image']) {
@@ -233,13 +212,6 @@ class ControllerProductCategory extends Controller {
 			
 			$url = '';
 	
-
-	        // Start filter
-	        if (isset($this->request->get['filter'])) {
-	          $url .= '&filter=' . $this->request->get['filter'];
-	        }
-	        // End filter
-            
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
@@ -354,13 +326,6 @@ class ControllerProductCategory extends Controller {
 				$url .= '&order=' . $this->request->get['order'];
 			}
 	
-
-	        // Start filter
-	        if (isset($this->request->get['filter'])) {
-	          $url .= '&filter=' . $this->request->get['filter'];
-	        }
-	        // End filter
-            
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
@@ -411,13 +376,6 @@ class ControllerProductCategory extends Controller {
 				$url .= '&order=' . $this->request->get['order'];
 			}
 				
-
-	        // Start filter
-	        if (isset($this->request->get['filter'])) {
-	          $url .= '&filter=' . $this->request->get['filter'];
-	        }
-	        // End filter
-            
 			if (isset($this->request->get['page'])) {
 				$url .= '&page=' . $this->request->get['page'];
 			}

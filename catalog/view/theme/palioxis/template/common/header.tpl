@@ -97,6 +97,7 @@ DD_belatedPNG.fix('#logo img');
       <?php } ?>
     </li>
     <?php } ?>
+    <li class="menu-right"><a href="/index.php?route=information/information&information_id=6">Доставка и Оплата</li>
   </ul>
 </div>
 <?php } ?>

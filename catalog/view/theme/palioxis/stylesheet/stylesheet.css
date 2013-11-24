@@ -632,6 +632,10 @@ label {
 	color: #FFFFFF;
 }
 
+#menu > ul > li.menu-right {
+	float: right;
+}
+
 /* Breadcrumb
 ------------------------------------------------------------*/
 
@@ -1077,7 +1081,7 @@ a.button:hover, input.button:hover {
 	display: block;
 	font-weight: bold;
 	font-size: 12px;
-	color: #525252;
+	color: #ff0000;
 	margin-bottom: 8px;
 }
 .featured-box .price-old {
@@ -1153,7 +1157,7 @@ a.button:hover, input.button:hover {
 .box-product .price {
 	display: block;
 	font-weight: bold;
-	color: #525252;
+	color: #ff0000;
 	margin-bottom: 6px;
 }
 .box-product .price-old {
@@ -1291,7 +1295,7 @@ a.button:hover, input.button:hover {
 	display: block;
 	font-weight: bold;
 	font-size: 10px;
-	color: #525252;
+	color: #ff0000;
 	margin-bottom: 2px;
 }
 .box-cl .price-old {
@@ -1563,7 +1567,7 @@ a.button:hover, input.button:hover {
 	height: 50px;
 	margin-left: 8px;
 	text-align: right;
-	color: #525252;
+	color: #ff0000;
 }
 .product-list .price-old {
 	color: #FF5AB0;
@@ -1674,7 +1678,7 @@ a.button:hover, input.button:hover {
 	display: block;
 	font-size: 14px;
 	font-weight: bold;
-	color: #525252;
+	color: #ff0000;
 	margin-bottom: 4px;
 }
 .product-grid .price-old {
@@ -1816,7 +1820,7 @@ a.button:hover, input.button:hover {
 	margin-bottom: 10px;
 	font-size: 16px;
 	font-weight: bold;
-	color: #626262;
+	color: #ff0000;
 }
 .product-info .price-old {
 	font-weight: normal;
@@ -1838,7 +1842,7 @@ a.button:hover, input.button:hover {
 .product-info .price .discount {
 	font-weight: normal;
 	font-size: 10px;
-	color: #525252;
+	color: #ff0000;
 	line-height: 15px;
 }
 .product-info .options {
@@ -2636,5 +2640,4 @@ a.button:hover, input.button:hover {
 	display: none;
 }
 .banner div img {
-	margin-bottom: 20px;
-}
+	margin-bo
